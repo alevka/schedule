@@ -5,3 +5,10 @@ INSERT INTO `procedures`( `name`) VALUES ('קלינאית תקשורת'), ('יצ
 
 INSERT INTO `users`( `fname`, `lname`, `birthdate`, `address`, `phone`, `diagnose_id`, `comments`) VALUES ('דוד', 'פורמן', '1979-12-12', 'ראשון לציון הרצל 94/5', '0503498588', '5', '');
 
+
+SELECT u.fname, u.lname, p.name as proc, s.week_day, s.lesson
+	FROM `schedule` s
+	join users u on s.user_id = u.id
+	join procedures p on s.procedure_id = p.id
+-- where u.id = 1
+
