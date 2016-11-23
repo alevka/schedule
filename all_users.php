@@ -5,23 +5,21 @@
  }
  
  function get_data() {
- 	$sql = open_connection('alev.local', 'root', '', 'yadsarah');
- 	
+ 	$mysql = open_connection('alev.local', 'root', '', 'yadsarah');
+ 	mysql_set_charset( 'utf8' );
  	// if(!sql) {
  	// 	echo "... not connected to the database";
  	// }
 
- 	$result = $sql->query("SELECT * FROM  users");
+ 	$result = $mysql->query("SELECT * FROM  users");
  
  	$output = [];
  	while ($row = $result->fetch_assoc()) {
  		$output []= $row;
  	}
- 	$sql->close();
+ 	$mysql->close();
  
  	return $output;
 
- 	
-
  }
- 
+
